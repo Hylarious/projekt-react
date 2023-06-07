@@ -5,6 +5,8 @@ import { strContains } from '../utils/strContains';
 
 //selectors
 
+export const getAllLists = (state) => state.lists
+
 export const getListById = ({lists}, listId) => lists.find(list => list.id=== listId);
 
 export const getFilteredColumns = ({ columns }, listId) => columns.filter(column => column.listId === listId);
