@@ -7,7 +7,7 @@ const NavBar = () =>{
 		<nav className={styles.navBar}>
 			<Container>
 				<div className={styles.navBarContainer}>
-					<Link to="/"><i class="fa fa-bars"></i></Link>
+					<Link to="/"><i className="fa fa-bars"></i></Link>
 					<ul>
 					<li><NavLink className={({ isActive }) => isActive ? styles.linkActive : undefined}
 					to="/">Home</NavLink></li>
