@@ -10,7 +10,6 @@ import SearchForm from '../SearchForm/SearchForm';
 const List = () =>{
 
 	const { listId } = useParams();
-	console.log(listId)
 	const listData = useSelector(state => getListById(state, listId))
 	const columns = useSelector(state => getFilteredColumns(state, listId));
 

@@ -10,4 +10,15 @@
     display: flex;
     justify-content: space-between;
     font-weight: bold;
+    color: $color-dark;
+}
+.cardButton{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+.active{
+    i{
+        color: gold;
+    }
 }
