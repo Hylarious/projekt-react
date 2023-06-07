@@ -1,17 +1,27 @@
 import styles from './List.module.scss';
 import Column from '../Column/Column';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import ColumnForm from '../ColumnForm/ColumnForm';
-import { getFilteredColumns, getListById } from '../../redux/store';
+import { getListById } from '../../redux/listsRedux';
+import { getFilteredColumns } from '../../redux/columnRedux';
 import { useParams, Navigate } from 'react-router-dom';
 import SearchForm from '../SearchForm/SearchForm';
+import { useEffect } from 'react';
+import { updateSearch } from '../../redux/searchRedux';
+
 
 
 const List = () =>{
 
+	const dispatch = useDispatch()
+
 	const { listId } = useParams();
 	const listData = useSelector(state => getListById(state, listId))
 	const columns = useSelector(state => getFilteredColumns(state, listId));
+
+	useEffect(() => {
+		dispatch(updateSearch(''));
+	}, [dispatch, listData.id]);
 
 	if(!listData) return <Navigate to="/" />
 
@@ -26,7 +36,6 @@ const List = () =>{
 				{columns.map(column =>
 					<Column
 						key={column.id}
-						
 						{...column}  />
 				)}
 			</section>
