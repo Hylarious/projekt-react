@@ -10,10 +10,9 @@
   border-radius: $radius;
   box-shadow: 0 math.div($base-size, 4) 0 rgba(0,0,0,0.3);
   
-
+}
 	.cards {
 		padding: math.div($base-size, 2) 0;
-		
 	}
 
 	@media (max-width: 767px) {
@@ -21,4 +20,10 @@
 			width: 100%;
 			margin: 0 0 $base-size 0;
 		}
-	}}
+	}
+
+	.text {
+		font-size: $base-size * 2;
+		text-align: center;
+		margin-bottom: $base-size * 3;
+	}

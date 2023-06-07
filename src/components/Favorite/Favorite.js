@@ -2,8 +2,9 @@ import { useSelector } from "react-redux"
 import styles from './Favorites.module.scss'
 import PageTitle from "../PageTitle/PageTitle"
 import Card from "../Card/Card"
+import Lists from '../Lists/Lists';
 import { getFavoriteCards } from "../../redux/cardsRedux"
-import { Navigate } from "react-router-dom"
+
 
 
 
@@ -12,7 +13,12 @@ const Favorite = () => {
 const cards = useSelector(state => getFavoriteCards(state))
 console.log(cards)
 
-if(cards.length === 0) return <Navigate to="/" />
+if(cards.length === 0) return (
+<div>
+	<PageTitle>Favorite</PageTitle>	
+	<p className={styles.text}>Add something from your lists!</p>
+	<Lists />
+</div>)
 
 return(
 		<div>
