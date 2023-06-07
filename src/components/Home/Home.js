@@ -1,5 +1,5 @@
 import Hero from "../Hero/Hero"
-
+import ListForm from "../ListForm/ListForm";
 import Lists from '../Lists/Lists';
 
 const Home = () => {
@@ -7,6 +7,7 @@ const Home = () => {
 		<div>
 			<Hero />
       <Lists />
+			<ListForm />
 		</div>
 	)
 }

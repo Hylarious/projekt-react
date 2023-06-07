@@ -16,6 +16,8 @@ export const getFilteredCards = ({ cards, searchString }, columnId) => cards
 
 export const getAllColumn = (state) => state.columns;
 
+export const addList = payload => ({type: 'ADD_LIST', payload: payload})
+
 export const addColumn = payload => ({type: 'ADD_COLUMN', payload: payload});
 
 export const addCard = payload => ({type: 'ADD_CARD', payload: payload})
@@ -24,6 +26,8 @@ export const updateSearch = payload => ({type: 'UPDATE_SEARCH', payload: payload
 
 const reducer = (state, action) => {
   switch (action.type) {
+    case 'ADD_LIST' :
+      return { ...state, lists: [...state.lists, {...action.payload, id: shortid() }]};
     case 'ADD_COLUMN' :
       return { ...state, columns: [...state.columns, { ...action.payload, id: shortid() }]};
     case 'ADD_CARD' :
